@@ -197,7 +197,9 @@
     "product_hotspots": "Zones réactives de produit",
     "hotspot_product": "Zone réactive",
     "product_sku": "SKU",
-    "layered_slideshow": "Diaporama superposé"
+    "layered_slideshow": "Diaporama superposé",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "autoplay": "Lecture automatique",
@@ -587,7 +589,30 @@
     "y_position": "Position verticale",
     "enable_sticky_add_to_cart": "Barre d’ajout au panier flottante",
     "sticky_add_to_cart": "Ajout au panier flottant",
-    "actions_display_style": "Style de menu"
+    "actions_display_style": "Style de menu",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Pomme",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "Affiche le SKU du produit parent",
     "content_layout": "Mise en page du contenu",
     "mobile_media_1": "Média mobile 1",
-    "utilities": "Utilitaires"
+    "utilities": "Utilitaires",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Partagez des informations sur votre marque avec vos clients. Décrivez un produit, faites des annonces ou accueillez les clients dans votre boutique.</p>",

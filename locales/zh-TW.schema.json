@@ -197,7 +197,9 @@
     "product_hotspots": "商品熱點",
     "hotspot_product": "熱點",
     "product_sku": "存貨單位 (SKU)",
-    "layered_slideshow": "分層輪播"
+    "layered_slideshow": "分層輪播",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "alignment": "對齊",
@@ -587,7 +589,30 @@
     "y_position": "垂直位置",
     "enable_sticky_add_to_cart": "固定加入購物車列",
     "sticky_add_to_cart": "固定加入購物車",
-    "actions_display_style": "選單樣式"
+    "actions_display_style": "選單樣式",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Apple",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "顯示父商品的存貨單位 (SKU)",
     "content_layout": "內容版面配置",
     "mobile_media_1": "行動裝置用多媒體檔案 1",
-    "utilities": "公用程式"
+    "utilities": "公用程式",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>向顧客分享您的品牌故事。可用來敘述產品、發布公告，或歡迎顧客造訪您的商店。</p>",

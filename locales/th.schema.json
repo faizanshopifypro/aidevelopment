@@ -197,7 +197,9 @@
     "product_hotspots": "ฮอตสปอตสินค้า",
     "hotspot_product": "ฮอตสปอต",
     "product_sku": "SKU",
-    "layered_slideshow": "สไลด์โชว์แบบซ้อน"
+    "layered_slideshow": "สไลด์โชว์แบบซ้อน",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "alignment": "การจัดตำแหน่ง",
@@ -587,7 +589,30 @@
     "y_position": "ตำแหน่งแนวตั้ง",
     "enable_sticky_add_to_cart": "แถบเพิ่มลงในตะกร้าสินค้าแบบตรึง",
     "sticky_add_to_cart": "เพิ่มลงในตะกร้าสินค้าแบบตรึง",
-    "actions_display_style": "รูปแบบเมนู"
+    "actions_display_style": "รูปแบบเมนู",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Apple",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "แสดง SKU จากสินค้าหลัก",
     "content_layout": "เลย์เอาต์เนื้อหา",
     "mobile_media_1": "สื่อสำหรับมือถือ 1",
-    "utilities": "ยูทิลิตี"
+    "utilities": "ยูทิลิตี",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>แชร์ข้อมูลเกี่ยวกับแบรนด์ของคุณกับลูกค้า อธิบายสินค้า ประกาศข่าวสาร หรือต้อนรับลูกค้าสู่ร้านค้าของคุณ</p>",

@@ -197,7 +197,9 @@
     "product_hotspots": "Produkt-Hotspots",
     "hotspot_product": "Hotspot",
     "product_sku": "SKU",
-    "layered_slideshow": "Überlagerte Slideshow"
+    "layered_slideshow": "Überlagerte Slideshow",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "autoplay": "Autoplay",
@@ -587,7 +589,30 @@
     "y_position": "Vertikale Position",
     "enable_sticky_add_to_cart": "Fixierte Leiste „In den Warenkorb“",
     "sticky_add_to_cart": "Fixierte Schaltfläche „In den Warenkorb“",
-    "actions_display_style": "Menüstil"
+    "actions_display_style": "Menüstil",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Apfel",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "Zeigt die SKU vom Hauptprodukt an",
     "content_layout": "Inhaltslayout",
     "mobile_media_1": "Mobile Medien 1",
-    "utilities": "Dienstprogramme"
+    "utilities": "Dienstprogramme",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Teile Informationen über deine Marke mit deinen Kunden. Beschreibe ein Produkt, mache Ankündigungen oder heiße Kunden in deinem Shop willkommen.</p>",

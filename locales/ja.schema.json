@@ -197,7 +197,9 @@
     "product_hotspots": "商品ホットスポット",
     "hotspot_product": "ホットスポット",
     "product_sku": "SKU",
-    "layered_slideshow": "レイヤースライドショー"
+    "layered_slideshow": "レイヤースライドショー",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "alignment": "配置",
@@ -587,7 +589,30 @@
     "y_position": "縦位置",
     "enable_sticky_add_to_cart": "固定「カートに追加」バー",
     "sticky_add_to_cart": "固定「カートに追加」",
-    "actions_display_style": "メニュースタイル"
+    "actions_display_style": "メニュースタイル",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Apple",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "親商品のSKUを表示します",
     "content_layout": "コンテンツレイアウト",
     "mobile_media_1": "モバイルメディア1",
-    "utilities": "ユーティリティ"
+    "utilities": "ユーティリティ",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>ブランドに関する情報をお客様に伝えましょう。商品の説明、お知らせ、ストアへのお客様への歓迎メッセージなどに使用します。</p>",

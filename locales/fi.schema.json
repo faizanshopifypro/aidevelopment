@@ -197,7 +197,9 @@
     "product_hotspots": "Tuotteen hotspotit",
     "hotspot_product": "Hotspot",
     "product_sku": "SKU-koodi",
-    "layered_slideshow": "Kerroksittainen diaesitys"
+    "layered_slideshow": "Kerroksittainen diaesitys",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "alignment": "Tasaus",
@@ -587,7 +589,30 @@
     "y_position": "Pystysuuntainen sijainti",
     "enable_sticky_add_to_cart": "Kiinteä Lisää ostoskoriin -palkki",
     "sticky_add_to_cart": "Kiinteä Lisää ostoskoriin -toiminto",
-    "actions_display_style": "Valikkotyyli"
+    "actions_display_style": "Valikkotyyli",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Omena",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "Näyttää SKU-koodin päätuotteesta",
     "content_layout": "Sisällön asettelu",
     "mobile_media_1": "Mobiilimedia 1",
-    "utilities": "Aputoiminnot"
+    "utilities": "Aputoiminnot",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Jaa tietoja brändistäsi asiakkaillesi. Kuvaile tuotetta, tee ilmoituksia tai toivota asiakkaat tervetulleiksi kauppaasi.</p>",

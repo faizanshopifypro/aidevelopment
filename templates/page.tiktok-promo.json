@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "tiktok_promo": {
+      "type": "tiktok-promo-banner",
+      "settings": {
+        "logo_alt": "TikTok for Business",
+        "heading": "Turn\nattention\ninto sales",
+        "button_label": "Try TikTok ads",
+        "image_alt": "Two people smiling outdoors",
+        "show_badge": true,
+        "badge_prefix": "Up to",
+        "badge_amount": "6,000",
+        "badge_currency": "USD",
+        "badge_caption": "in ads credit",
+        "background": "#FFFFFF",
+        "heading_color": "#111111",
+        "button_background": "#FF4F73",
+        "button_text": "#FFFFFF",
+        "badge_background": "#2EE0DC",
+        "badge_amount_color": "#FF2C55",
+        "badge_text_color": "#111111",
+        "accent_green": "#3BD56F",
+        "accent_mint": "#7DFFB0",
+        "accent_pink": "#FF4D6D",
+        "color_scheme": "scheme-1",
+        "show_stripes": true,
+        "show_corner_shapes": true,
+        "section_width": "full-width",
+        "content_max_width": 1100,
+        "heading_size": 72,
+        "heading_size_mobile": 40,
+        "heading_line_height": "0.95",
+        "portrait_size": 58,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": ["heading", "page-content"],
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": ["tiktok_promo", "main"]
+}

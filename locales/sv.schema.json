@@ -197,7 +197,9 @@
     "product_hotspots": "Produkthotspots",
     "hotspot_product": "Hotspot",
     "product_sku": "Lagerhållningsenhet",
-    "layered_slideshow": "Bildspel med lager"
+    "layered_slideshow": "Bildspel med lager",
+  
+    "tiktok_promo": "TikTok promo"
   },
   "settings": {
     "alignment": "Justering",
@@ -587,7 +589,30 @@
     "y_position": "Vertikal position",
     "enable_sticky_add_to_cart": "Fast fält för ”Lägg till i varukorgen”",
     "sticky_add_to_cart": "Fast ”Lägg till i varukorgen”",
-    "actions_display_style": "Menystil"
+    "actions_display_style": "Menystil",
+  
+    "logo_alt": "Logo alt text",
+    "image_alt": "Image alt text",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "button_background": "Button background",
+    "button_text": "Button text",
+    "heading_color": "Heading color",
+    "badge_prefix": "Badge prefix",
+    "badge_amount": "Badge amount",
+    "badge_currency": "Currency",
+    "badge_caption": "Badge caption",
+    "badge_background": "Badge background",
+    "badge_amount_color": "Amount",
+    "badge_text_color": "Badge text",
+    "accent_green": "Green accent",
+    "accent_mint": "Mint accent",
+    "accent_pink": "Pink accent",
+    "heading_size_mobile": "Mobile heading size",
+    "portrait_size": "Portrait size",
+    "show_stripes": "Stripes",
+    "show_badge": "Offer badge",
+    "show_corner_shapes": "Corner shapes"
   },
   "options": {
     "apple": "Apple",
@@ -979,7 +1004,12 @@
     "resource_reference_product_sku": "Visar lagerhållningsenhet från överordnad produkt",
     "content_layout": "Innehållslayout",
     "mobile_media_1": "Mobilmedia 1",
-    "utilities": "Verktyg"
+    "utilities": "Verktyg",
+  
+    "tiktok_promo_portrait": "Portrait",
+    "tiktok_promo_image_help": "Upload a square photo. The section masks it into a circle.",
+    "tiktok_promo_badge": "Offer badge",
+    "tiktok_promo_decorations": "Decorations"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Dela information om ditt varumärke med dina kunder. Beskriv en produkt, gör tillkännagivanden eller välkomna kunder till din butik.</p>",

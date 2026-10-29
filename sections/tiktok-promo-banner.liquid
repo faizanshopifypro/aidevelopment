@@ -1,0 +1,865 @@
+{% comment %}
+  Section contract.
+  Square promotional banner for pages: logo, headline, pill button,
+  circular portrait, scalloped offer badge, and corner shapes.
+  @example
+  <!-- Assign the tiktok-promo page template, or add this section on a page -->
+{% endcomment %}
+
+{% liquid
+  assign fetch_priority = 'auto'
+  assign image_loading = 'lazy'
+  if section.index == 1
+    assign fetch_priority = 'high'
+    assign image_loading = 'eager'
+  endif
+
+  assign show_badge = false
+  if section.settings.show_badge and section.settings.badge_amount != blank
+    assign show_badge = true
+  endif
+
+  assign show_portrait = false
+  if section.settings.image != blank or show_badge
+    assign show_portrait = true
+  endif
+
+  assign image_alt = ''
+  if section.settings.image != blank
+    if section.settings.image_alt != blank
+      assign image_alt = section.settings.image_alt
+    else
+      assign image_alt = section.settings.image.alt
+    endif
+  endif
+
+  assign logo_alt = ''
+  if section.settings.logo != blank
+    if section.settings.logo_alt != blank
+      assign logo_alt = section.settings.logo_alt
+    else
+      assign logo_alt = section.settings.logo.alt
+    endif
+  endif
+
+  assign show_content = false
+  if section.settings.heading != blank or section.settings.button_label != blank
+    assign show_content = true
+  endif
+%}
+
+<div
+  class="section-background color-{{ section.settings.color_scheme }}"
+  style="background: {{ section.settings.background }};"
+></div>
+<div class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}">
+  <div
+    class="tiktok-promo spacing-style"
+    data-testid="tiktok-promo"
+    style="
+      --promo-background: {{ section.settings.background }};
+      --promo-heading: {{ section.settings.heading_color }};
+      --promo-button: {{ section.settings.button_background }};
+      --promo-button-text: {{ section.settings.button_text }};
+      --promo-badge: {{ section.settings.badge_background }};
+      --promo-badge-amount: {{ section.settings.badge_amount_color }};
+      --promo-badge-text: {{ section.settings.badge_text_color }};
+      --promo-green: {{ section.settings.accent_green }};
+      --promo-mint: {{ section.settings.accent_mint }};
+      --promo-pink: {{ section.settings.accent_pink }};
+      --promo-max-width: {{ section.settings.content_max_width }}px;
+      --promo-heading-size: {{ section.settings.heading_size }}px;
+      --promo-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+      --promo-heading-line-height: {{ section.settings.heading_line_height }};
+      --promo-portrait-size: {{ section.settings.portrait_size }}%;
+      {% render 'spacing-style', settings: section.settings %}
+    "
+    {{ section.shopify_attributes }}
+  >
+    <div class="tiktok-promo__frame">
+      {% if section.settings.show_stripes %}
+        <div class="tiktok-promo__stripes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_corner_shapes %}
+        <span class="tiktok-promo__blob tiktok-promo__blob--green" aria-hidden="true"></span>
+        <span class="tiktok-promo__blob tiktok-promo__blob--pink" aria-hidden="true"></span>
+      {% endif %}
+
+      {% if section.settings.logo != blank %}
+        <div class="tiktok-promo__logo">
+          {% capture logo_image %}
+            {{
+              section.settings.logo
+              | image_url: width: 640
+              | image_tag:
+                widths: '160, 240, 320, 480, 640',
+                sizes: '220px',
+                width: section.settings.logo.width,
+                height: section.settings.logo.height,
+                alt: logo_alt,
+                class: 'tiktok-promo__logo-image',
+                loading: image_loading
+            }}
+          {% endcapture %}
+          {% if section.settings.logo_link != blank %}
+            <a class="tiktok-promo__logo-link" href="{{ section.settings.logo_link }}">
+              {{ logo_image }}
+            </a>
+          {% else %}
+            {{ logo_image }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if show_content %}
+        <div class="tiktok-promo__content">
+          {% if section.settings.heading != blank %}
+            <h2 class="tiktok-promo__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+          {% endif %}
+          {% if section.settings.button_label != blank %}
+            {% if section.settings.button_link != blank %}
+              <a class="tiktok-promo__button" href="{{ section.settings.button_link }}">
+                {{ section.settings.button_label | escape }}
+              </a>
+            {% else %}
+              <span class="tiktok-promo__button">{{ section.settings.button_label | escape }}</span>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if show_portrait %}
+        <div class="tiktok-promo__portrait">
+          {% if section.settings.image != blank %}
+            <div class="tiktok-promo__media">
+              {{
+                section.settings.image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '400, 600, 800, 1200, 1600',
+                  sizes: '(min-width: 750px) 640px, 90vw',
+                  width: section.settings.image.width,
+                  height: section.settings.image.height,
+                  alt: image_alt,
+                  class: 'tiktok-promo__photo',
+                  loading: image_loading,
+                  fetchpriority: fetch_priority
+              }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.show_corner_shapes %}
+            <span class="tiktok-promo__blob tiktok-promo__blob--mint" aria-hidden="true"></span>
+          {% endif %}
+
+          {% if show_badge %}
+            <div class="tiktok-promo__badge">
+              <svg class="tiktok-promo__badge-shape" viewBox="6 6 188 188" aria-hidden="true" focusable="false">
+                <path
+                  class="tiktok-promo__badge-stroke"
+                  d="M 100.00 26.00 Q 121.07 -5.92 128.32 31.63 Q 160.00 10.20 152.33 47.67 Q 189.80 40.00 168.37 71.68 Q 205.92 78.93 174.00 100.00 Q 205.92 121.07 168.37 128.32 Q 189.80 160.00 152.33 152.33 Q 160.00 189.80 128.32 168.37 Q 121.07 205.92 100.00 174.00 Q 78.93 205.92 71.68 168.37 Q 40.00 189.80 47.67 152.33 Q 10.20 160.00 31.63 128.32 Q -5.92 121.07 26.00 100.00 Q -5.92 78.93 31.63 71.68 Q 10.20 40.00 47.67 47.67 Q 40.00 10.20 71.68 31.63 Q 78.93 -5.92 100.00 26.00 Z"
+                />
+                <path
+                  class="tiktok-promo__badge-fill"
+                  transform="translate(100 100) scale(0.9) translate(-100 -100)"
+                  d="M 100.00 26.00 Q 121.07 -5.92 128.32 31.63 Q 160.00 10.20 152.33 47.67 Q 189.80 40.00 168.37 71.68 Q 205.92 78.93 174.00 100.00 Q 205.92 121.07 168.37 128.32 Q 189.80 160.00 152.33 152.33 Q 160.00 189.80 128.32 168.37 Q 121.07 205.92 100.00 174.00 Q 78.93 205.92 71.68 168.37 Q 40.00 189.80 47.67 152.33 Q 10.20 160.00 31.63 128.32 Q -5.92 121.07 26.00 100.00 Q -5.92 78.93 31.63 71.68 Q 10.20 40.00 47.67 47.67 Q 40.00 10.20 71.68 31.63 Q 78.93 -5.92 100.00 26.00 Z"
+                />
+              </svg>
+              <div class="tiktok-promo__badge-copy">
+                {% if section.settings.badge_prefix != blank %}
+                  <span class="tiktok-promo__badge-prefix">{{ section.settings.badge_prefix | escape }}</span>
+                {% endif %}
+                <span class="tiktok-promo__badge-amount">{{ section.settings.badge_amount | escape }}</span>
+                {% if section.settings.badge_currency != blank %}
+                  <span class="tiktok-promo__badge-currency">{{ section.settings.badge_currency | escape }}</span>
+                {% endif %}
+                {% if section.settings.badge_caption != blank %}
+                  <span class="tiktok-promo__badge-caption">{{ section.settings.badge_caption | escape }}</span>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .tiktok-promo {
+    background: var(--promo-background);
+    color: var(--promo-heading);
+  }
+
+  .tiktok-promo__frame {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: min(100%, var(--promo-max-width));
+    margin-inline: auto;
+    aspect-ratio: 1;
+    background: var(--promo-background);
+    container-type: inline-size;
+  }
+
+  .tiktok-promo__stripes {
+    position: absolute;
+    z-index: 3;
+    inset-inline-start: 0.25rem;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.72rem;
+    transform: rotate(48deg);
+    pointer-events: none;
+  }
+
+  .tiktok-promo__stripes span {
+    display: block;
+    height: 0.78rem;
+    border-radius: 999px;
+    background: var(--promo-green);
+  }
+
+  .tiktok-promo__stripes span:nth-child(1) {
+    width: 7.6rem;
+  }
+
+  .tiktok-promo__stripes span:nth-child(2) {
+    width: 6.5rem;
+  }
+
+  .tiktok-promo__stripes span:nth-child(3) {
+    width: 5.15rem;
+  }
+
+  .tiktok-promo__blob {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .tiktok-promo__blob--green {
+    width: 18rem;
+    height: 12.5rem;
+    background: var(--promo-green);
+    inset-inline-start: -8rem;
+    bottom: -5.5rem;
+  }
+
+  .tiktok-promo__blob--pink {
+    width: 15rem;
+    height: 15rem;
+    background: var(--promo-pink);
+    inset-inline-end: -6.5rem;
+    bottom: -7rem;
+  }
+
+  .tiktok-promo__blob--mint {
+    z-index: 3;
+    width: 24%;
+    height: 14%;
+    background: var(--promo-mint);
+    inset-inline-end: 5%;
+    top: 2%;
+  }
+
+  .tiktok-promo__logo {
+    position: absolute;
+    z-index: 6;
+    inset-inline-start: 5.5%;
+    top: 4.5%;
+    max-width: 34%;
+    min-width: 0;
+  }
+
+  .tiktok-promo__logo-link {
+    display: inline-block;
+  }
+
+  .tiktok-promo__logo-image {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 4.6rem;
+  }
+
+  .tiktok-promo__content {
+    position: absolute;
+    z-index: 6;
+    inset-inline-start: 5.5%;
+    top: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(1rem, 3cqi, 1.75rem);
+    width: calc(100% - var(--promo-portrait-size) - 4%);
+    min-width: 0;
+  }
+
+  .tiktok-promo__heading {
+    margin: 0;
+    max-width: 100%;
+    color: var(--promo-heading);
+    font-family: var(--font-heading--family);
+    font-style: var(--font-heading--style);
+    font-weight: 800;
+    font-size: min(var(--promo-heading-size), 6.6cqi);
+    line-height: var(--promo-heading-line-height);
+    letter-spacing: -0.04em;
+    overflow-wrap: break-word;
+  }
+
+  .tiktok-promo__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    margin: 0;
+    padding-block: 0.8rem;
+    padding-inline: 1.55rem;
+    border-radius: 999px;
+    background: var(--promo-button);
+    color: var(--promo-button-text);
+    font-family: var(--font-heading--family);
+    font-style: var(--font-heading--style);
+    font-weight: 700;
+    font-size: clamp(1rem, 2.35cqi, 1.28rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  a.tiktok-promo__button {
+    cursor: pointer;
+  }
+
+  .tiktok-promo__button:focus-visible,
+  .tiktok-promo__logo-link:focus-visible {
+    outline: var(--focus-outline-width) solid var(--promo-heading);
+    outline-offset: var(--focus-outline-offset);
+  }
+
+  .tiktok-promo__portrait {
+    position: absolute;
+    z-index: 2;
+    inset-inline-end: 3%;
+    top: 8%;
+    width: var(--promo-portrait-size);
+    aspect-ratio: 1;
+  }
+
+  .tiktok-promo__media {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    background: rgb(var(--color-foreground-rgb) / var(--opacity-5-15));
+  }
+
+  .tiktok-promo__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .tiktok-promo__badge {
+    position: absolute;
+    z-index: 5;
+    inset-inline-start: -2%;
+    bottom: 1%;
+    display: grid;
+    place-items: center;
+    width: 60%;
+    aspect-ratio: 1;
+    container-type: inline-size;
+  }
+
+  .tiktok-promo__badge-shape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tiktok-promo__badge-stroke {
+    fill: #fff;
+  }
+
+  .tiktok-promo__badge-fill {
+    fill: var(--promo-badge);
+  }
+
+  .tiktok-promo__badge-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 66%;
+    text-align: center;
+  }
+
+  .tiktok-promo__badge-prefix {
+    display: inline-block;
+    margin-block-end: 0.12em;
+    padding-block: 0.12em;
+    padding-inline: 0.55em;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--promo-badge-text);
+    font-family: var(--font-heading--family);
+    font-weight: 800;
+    font-size: 0.8rem;
+    font-size: 8cqi;
+    line-height: 1.1;
+  }
+
+  .tiktok-promo__badge-amount {
+    color: var(--promo-badge-amount);
+    font-family: var(--font-heading--family);
+    font-weight: 800;
+    font-size: 4.25rem;
+    font-size: 30cqi;
+    line-height: 0.84;
+    letter-spacing: -0.045em;
+  }
+
+  .tiktok-promo__badge-currency {
+    color: var(--promo-badge-amount);
+    font-family: var(--font-heading--family);
+    font-weight: 800;
+    font-size: 1.15rem;
+    font-size: 11cqi;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .tiktok-promo__badge-caption {
+    max-width: 9em;
+    margin-block-start: 0.12em;
+    color: var(--promo-badge-text);
+    font-family: var(--font-heading--family);
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-size: 8.5cqi;
+    line-height: 1.05;
+  }
+
+  @media screen and (max-width: 749px) {
+    .tiktok-promo__frame {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      aspect-ratio: auto;
+      padding-block: 1.25rem 2.75rem;
+      padding-inline: 1.25rem;
+    }
+
+    .tiktok-promo__logo,
+    .tiktok-promo__content,
+    .tiktok-promo__portrait {
+      position: relative;
+      inset-block: auto;
+      inset-inline: auto;
+      max-width: 100%;
+    }
+
+    .tiktok-promo__logo {
+      max-width: 11rem;
+    }
+
+    .tiktok-promo__content {
+      width: 100%;
+    }
+
+    .tiktok-promo__heading {
+      font-size: var(--promo-heading-size-mobile);
+    }
+
+    .tiktok-promo__portrait {
+      width: min(100%, 26rem);
+      align-self: center;
+      margin-block-start: 0.25rem;
+    }
+
+    .tiktok-promo__stripes {
+      z-index: 0;
+      top: 1.1rem;
+      inset-inline-start: -2.6rem;
+      transform: rotate(48deg) scale(0.5);
+      transform-origin: left center;
+    }
+
+    .tiktok-promo__blob--green,
+    .tiktok-promo__blob--pink {
+      width: 8.5rem;
+      height: 8.5rem;
+    }
+
+    .tiktok-promo__blob--green {
+      inset-inline-start: -4rem;
+      bottom: -3.5rem;
+    }
+
+    .tiktok-promo__blob--pink {
+      inset-inline-end: -3.5rem;
+      bottom: -4rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.tiktok_promo",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["index", "page"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:content.logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_alt",
+      "label": "t:settings.logo_alt",
+      "default": "TikTok for Business"
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "t:settings.link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:content.heading",
+      "default": "Turn\nattention\ninto sales"
+    },
+    {
+      "type": "header",
+      "content": "t:names.button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:settings.button_label",
+      "default": "Try TikTok ads"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:settings.button_link"
+    },
+    {
+      "type": "header",
+      "content": "t:content.tiktok_promo_portrait"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:content.tiktok_promo_image_help"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:content.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:settings.image_alt",
+      "default": "Two people smiling outdoors"
+    },
+    {
+      "type": "header",
+      "content": "t:content.tiktok_promo_badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "t:settings.show_badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_prefix",
+      "label": "t:settings.badge_prefix",
+      "default": "Up to",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_amount",
+      "label": "t:settings.badge_amount",
+      "default": "6,000",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_currency",
+      "label": "t:settings.badge_currency",
+      "default": "USD",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_caption",
+      "label": "t:settings.badge_caption",
+      "default": "in ads credit",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:settings.background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "t:settings.heading_color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "t:settings.button_background",
+      "default": "#FF4F73"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "t:settings.button_text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "t:settings.badge_background",
+      "default": "#2EE0DC",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "color",
+      "id": "badge_amount_color",
+      "label": "t:settings.badge_amount_color",
+      "default": "#FF2C55",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "t:settings.badge_text_color",
+      "default": "#111111",
+      "visible_if": "{{ section.settings.show_badge }}"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "t:settings.accent_green",
+      "default": "#3BD56F",
+      "visible_if": "{{ section.settings.show_stripes or section.settings.show_corner_shapes }}"
+    },
+    {
+      "type": "color",
+      "id": "accent_mint",
+      "label": "t:settings.accent_mint",
+      "default": "#7DFFB0",
+      "visible_if": "{{ section.settings.show_corner_shapes }}"
+    },
+    {
+      "type": "color",
+      "id": "accent_pink",
+      "label": "t:settings.accent_pink",
+      "default": "#FF4D6D",
+      "visible_if": "{{ section.settings.show_corner_shapes }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.tiktok_promo_decorations"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stripes",
+      "label": "t:settings.show_stripes",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_corner_shapes",
+      "label": "t:settings.show_corner_shapes",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.section_width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "t:settings.content_width",
+      "min": 720,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "t:content.heading_size",
+      "min": 40,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "t:settings.heading_size_mobile",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "heading_line_height",
+      "label": "t:settings.line_height",
+      "options": [
+        {
+          "value": "0.8",
+          "label": "0.8"
+        },
+        {
+          "value": "0.9",
+          "label": "0.9"
+        },
+        {
+          "value": "0.95",
+          "label": "0.95"
+        },
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "1.1",
+          "label": "1.1"
+        },
+        {
+          "value": "1.2",
+          "label": "1.2"
+        },
+        {
+          "value": "1.4",
+          "label": "1.4"
+        }
+      ],
+      "default": "0.95"
+    },
+    {
+      "type": "range",
+      "id": "portrait_size",
+      "label": "t:settings.portrait_size",
+      "min": 42,
+      "max": 72,
+      "step": 1,
+      "unit": "%",
+      "default": 58
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.tiktok_promo",
+      "category": "t:categories.banners",
+      "settings": {
+        "heading": "Turn\nattention\ninto sales",
+        "button_label": "Try TikTok ads",
+        "badge_prefix": "Up to",
+        "badge_amount": "6,000",
+        "badge_currency": "USD",
+        "badge_caption": "in ads credit",
+        "section_width": "full-width",
+        "color_scheme": "scheme-1"
+      }
+    }
+  ]
+}
+{% endschema %}
